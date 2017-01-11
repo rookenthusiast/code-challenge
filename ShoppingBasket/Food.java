@@ -3,9 +3,9 @@ package ShoppingBasket;
 public class Food{
 
   String name;
-  int price;
+  double price;
 
-  public Food(String name, int price){
+  public Food(String name, double price){
     this.name = name;
     this.price = price;
   }
@@ -14,7 +14,7 @@ public class Food{
     return this.name;
   }
 
-  public int price(){
+  public double price(){
     return this.price;
   }
   

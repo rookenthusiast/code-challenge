@@ -35,6 +35,10 @@ public class ShoppingBasket {
     }
   }
 
+  public void emptyBasket(){
+    basket.clear();
+  }
+
   public int basketCount() {
     int count =0;
     for (Food item : basket){
@@ -44,6 +48,22 @@ public class ShoppingBasket {
     }
     return count;
   }
+
+  public double shoppingCost(){
+    double total = 0;
+    for (Food item : basket){
+     total += item.price;
+   }
+   return total;
+ }
+
+ public double tenPercentReductionOnCost(double cost){
+  double total = 0;
+  if (cost > 20.00){
+    total += (cost / 10);
+  }
+  return cost -= total;
+}
 
 
 }

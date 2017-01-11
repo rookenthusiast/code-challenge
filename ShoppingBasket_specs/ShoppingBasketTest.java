@@ -10,8 +10,8 @@ public class ShoppingBasketTest{
   @Before
   public void before(){
     shoppingBasket = new ShoppingBasket();
-    item1 = new Food("bread", 70);
-    item2 = new Food("milk", 1);
+    item1 = new Food("bread", 0.70);
+    item2 = new Food("milk", 1.20);
   }
 
   @Test
@@ -41,6 +41,34 @@ public class ShoppingBasketTest{
     assertEquals(1,shoppingBasket.basketCount());
 
   }
+
+  @Test
+  public void canEmptyBasket(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    assertEquals(2,shoppingBasket.basketCount());
+    shoppingBasket.emptyBasket();
+    assertEquals(0,shoppingBasket.basketCount());
+  }
+
+  @Test
+  public void canGetCost(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    assertEquals(2,shoppingBasket.basketCount());
+    assertEquals(1.9,shoppingBasket.shoppingCost(),0.01);
+  }
+
+  @Test
+  public void tenPercentOffShopping(){
+    assertEquals(19.80,shoppingBasket.tenPercentReductionOnCost(22.00),0.01);
+
+    assertEquals(36.45,shoppingBasket.tenPercentReductionOnCost(40.50),0.01);
+  }
+
+
+
+
 
 
 }
