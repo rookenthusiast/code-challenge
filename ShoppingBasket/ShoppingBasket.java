@@ -49,7 +49,7 @@ public class ShoppingBasket {
     return count;
   }
 
-  public double shoppingCost(){
+  public double initialShoppingCost(){
     double total = 0;
     for (Food item : basket){
      total += item.price;
@@ -57,12 +57,36 @@ public class ShoppingBasket {
    return total;
  }
 
- public double tenPercentReductionOnCost(double cost){
+ public int checkInstancesOfProduct(String product){
+  int counter = 0;
+  for (Food item : basket){
+    if(item.getName().equals(product)){
+      counter += 1;
+    }
+  }
+  return counter;
+}
+
+// public double buyOneGetOneFreeFilter(int items){
+
+//   if(items/2.equals(true)){
+    
+//   }
+// }
+
+
+public double tenPercentReductionOnCost(double cost){
   double total = 0;
   if (cost > 20.00){
     total += (cost / 10);
   }
   return cost -= total;
+}
+
+public double totalShoppingCost(){
+  subTotal = initialShoppingCost();
+  tenPercentDiscountCheck = tenPercentReductionOnCost(subTotal);
+  return tenPercentDiscountCheck;
 }
 
 

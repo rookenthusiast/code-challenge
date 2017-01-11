@@ -56,7 +56,7 @@ public class ShoppingBasketTest{
     shoppingBasket.addToBasket(item1);
     shoppingBasket.addToBasket(item2);
     assertEquals(2,shoppingBasket.basketCount());
-    assertEquals(1.9,shoppingBasket.shoppingCost(),0.01);
+    assertEquals(1.9,shoppingBasket.initialShoppingCost(),0.01);
   }
 
   @Test
@@ -64,6 +64,17 @@ public class ShoppingBasketTest{
     assertEquals(19.80,shoppingBasket.tenPercentReductionOnCost(22.00),0.01);
 
     assertEquals(36.45,shoppingBasket.tenPercentReductionOnCost(40.50),0.01);
+  }
+
+  @Test
+  public void checkNumberOfIntancesOfItem(){
+    shoppingBasket.addToBasket(item1);
+    shoppingBasket.addToBasket(item2);
+    shoppingBasket.addToBasket(item2);
+
+    assertEquals(2, shoppingBasket.checkInstancesOfProduct("milk"));
+
+    assertEquals(1,shoppingBasket.checkInstancesOfProduct("bread"));
   }
 
 
