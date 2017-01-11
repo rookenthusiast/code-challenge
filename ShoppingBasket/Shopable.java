@@ -1,5 +1,5 @@
-package ShoppingBasket;
+// package ShoppingBasket;
 
-public interface Shopable{
-public int price();
-}
+// public interface Shopable{
+//   public int price();
+// }

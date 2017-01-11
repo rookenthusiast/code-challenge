@@ -3,23 +3,33 @@ import java.util.*;
 
 public class ShoppingBasket {
 
-  ArrayList<Shopable> basket;
+  ArrayList<Food> basket;
+
 
   public ShoppingBasket(){
-    this.basket = new ArrayList<Shopable>();
+    this.basket = new ArrayList<Food>();
   }
 
   public ArrayList getBasket(){
     return basket;
   }
 
-  public void addToBasket(Shopable item){
+  public void addToBasket(Food item){
     basket.add(item);
   }
 
-  public void  removeFromBasket(Shopable item){
-    for (Shopable product : basket ){
-      if (product.equals(item)){
+  public Food getItemByName(String name){
+    for (Food product : basket){
+      if (product.getName().equals(name)){
+        return product;
+      }
+    }
+    return null;
+  }
+
+  public void  removeFromBasket(String item){
+    for (Food product : basket ){
+      if (product.getName().equals(item)){
         basket.remove(product);
       }
     }
@@ -27,7 +37,7 @@ public class ShoppingBasket {
 
   public int basketCount() {
     int count =0;
-    for (Shopable item : basket){
+    for (Food item : basket){
       if (item != null) {
         count++;
       }
